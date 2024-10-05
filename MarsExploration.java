@@ -10,24 +10,32 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
-
-    /*
-     * Complete the 'marsExploration' function below.
-     *
-     * The function is expected to return an INTEGER.
-     * The function accepts STRING s as parameter.
-     */
-
-    public static int marsExploration(String s) {
+class Result
+{
+    public static int marsExploration(String s)
+    {
         int count = 0;
-        for (int i = 0, n = s.length(); i < n; i++) {
-            if ((i % 3 == 0 && s.charAt(i) != 'S')
-                || (i % 3 == 1 && s.charAt(i) != 'O')
-                || (i % 3 == 2 && s.charAt(i) != 'S')) {
+        
+        for (int i = 0, n = s.length(); i < n; i++)
+        {
+            char ch = s.charAt(i);
+            
+            if (i % 3 == 0 || i % 3 == 2)
+            {
+                if (ch != 'S')
+                {
                     count++;
+                }
+            }
+            else
+            {
+                if (ch != 'O')
+                {
+                    count++;
+                }
             }
         }
+        
         return count;
     }
 }
